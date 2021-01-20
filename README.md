@@ -3,4 +3,4 @@ My solutions or interesting ones for Project Euler problems found at https://pro
 
 Note: Take a look at problems 0009 and 0012 and try to improve them. They are still under the project rules.
 
-Preferred ones: 0011, 0017 and 0018
+Preferred ones: 0011, 0017 to 0019

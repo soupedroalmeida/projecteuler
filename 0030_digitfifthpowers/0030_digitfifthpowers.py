@@ -10,8 +10,3 @@ def getRightSum(power):
     return result
 
 print(sum(getRightSum(5)) - 1)
-            
-
-        
-            
-

@@ -1,26 +1,18 @@
 import math
 from itertools import combinations
 
-def coinSums():
-    possibleCoins = (1, 2, 5, 10, 20, 50, 100, 200)
-    result = 0
-    temp = 0
-    count = 0
+def coinSums(uCoins, goal):
+    cond = False
+    if sum(uCoins) <= goal: # if the sum of coins in group is less than or equal to the goal
+        print("\ncoins used:", uCoins)
+        print("remainder:", goal - sum(uCoins))
+        cond = True
+    return cond
 
-    for i in range(1, len(possibleCoins) + 1):
-        result += math.factorial(len(possibleCoins)) / (math.factorial(i) * math.factorial(abs(len(possibleCoins) - i)))
+aCoins = (1, 2, 5, 10, 20, 50, 100, 200)
+for nCoins in range(1, len(aCoins) + 1): # for each possible number of coins to group
+    # nComb is in the form [(1, 2), (1, 5), ..., (50, 100)] for nCoins = 2, for example
+    nComb = list(combinations(aCoins, nCoins))
 
-    for i in range(1, len(possibleCoins) + 1):
-        comb = list(combinations(possibleCoins, i))
-        for j in range(len(comb)):
-            for k in range(i):
-                temp += comb[j][k]
-            if temp <= possibleCoins[-1]: # adopt an ordered possibleCoins
-                print(comb[j])
-                print(temp)
-                count += 1
-            temp = 0
-
-    return result
-
-coinSums()
+    for i in range(len(nComb)): # for each possible group of coins (pCoins)
+        coinSums(nComb[i], 200)

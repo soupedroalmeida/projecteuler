@@ -2,18 +2,21 @@ def check_pandigital(product):
     compare_string = []
     result = []
     
-    for i in range(len(product)):
-        for j in range(2):
-            for c in str(product[i][j]):
+    for operation in range(len(product)):
+        for i in range(2):
+            for c in str(product[operation][i]):
                 compare_string.append(int(c))
 
-        for c in str(product[i][0] * product[i][1]):
-            compare_string.append(int(c))
-        
+        if len(str(product)) == 10 - len(compare_string):
+            for c in str(product[operation][0] * product[operation][1]):
+                compare_string.append(int(c))
+            
+        compare_string.sort()
+
         if len(compare_string) == 9:
             print(compare_string)
             
-        result.append(sorted(compare_string) == list(range(1, 10)))
+        result.append(compare_string == list(range(1, 10)))
         compare_string = []
 
     return result

@@ -4,7 +4,7 @@ def checkSum(uCoins, goal):
     result = False
     if sum(uCoins) <= goal: # if the sum of coins in group is less than or equal to the goal
         result = True
-    return [result, uCoins, goal - sum(uCoins)] 
+    return [result, uCoins, goal - sum(uCoins)]
 
 def checkComb(uCoins):
     result = []

@@ -1,20 +1,20 @@
-def check_pandigital(product):
+def check_pandigital(operators_list):
     compare_string = []
     result = []
     
-    for operation in range(len(product)):
+    for operators in range(len(operators_list)):
         for i in range(2):
-            for c in str(product[operation][i]):
+            for c in str(operators_list[operators][i]):
                 compare_string.append(int(c))
 
-        if len(str(product)) == 10 - len(compare_string):
-            for c in str(product[operation][0] * product[operation][1]):
+        product = str(operators_list[operators][0] * operators_list[operators][1])
+
+        if len(product) + len(compare_string) == 9:
+            for c in product:
                 compare_string.append(int(c))
             
         compare_string.sort()
-
-        if len(compare_string) == 9:
-            print(compare_string)
+        print(compare_string)
             
         result.append(compare_string == list(range(1, 10)))
         compare_string = []
